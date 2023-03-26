@@ -12,10 +12,14 @@ doctor1 = Provider.create(name: "Dr. Feelgood", email: "motley@crue.com")
 doctor2 = Provider.create(name: "Dr. Who", email: "who@tardis.com")
 p "Created #{Provider.count} providers"
 
-client1 = Client.create(name: "Human Person", email: "me@my.email", plan: "basic", providers_id: doctor1.id)
-client2 = Client.create(name: "Peter Parker", email: "spidey@sense.com", plan: "premium", providers_id: doctor2.id)
+client1 = Client.create(name: "Human Person", email: "me@my.email", plan: "basic")
+client2 = Client.create(name: "Peter Parker", email: "spidey@sense.com", plan: "premium")
 p "Created #{Client.count} clients"
 
 JournalEntry.create(text: "I saw the doctor today and I'm a human", clients_id: client1.id)
 JournalEntry.create(text: "I got bitten by a spider and it hurts", clients_id: client2.id)
 p "Created #{JournalEntry.count} journal entries"
+
+doctor1.clients << [client1]
+client2.providers << [doctor1, doctor2]
+p "Assigned doctors #{client2}"

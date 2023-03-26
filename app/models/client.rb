@@ -1,4 +1,8 @@
 class Client < ApplicationRecord
-  belongs_to :providers, foreign_key: "providers_id", :class_name => "Provider"
   has_many :journal_entries
+  has_many :provider_assignments
+  has_many :providers, through: :provider_assignments
+
+  validates :email, presence: true
+  validates :name, presence: true
 end

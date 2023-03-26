@@ -10,24 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_24_224314) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_26_141710) do
   create_table "clients", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.string "plan"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "providers_id", null: false
     t.index ["email"], name: "index_clients_on_email", unique: true
-    t.index ["providers_id"], name: "index_clients_on_providers_id"
   end
 
   create_table "journal_entries", force: :cascade do |t|
     t.string "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "clients_id", null: false
+    t.integer "clients_id"
     t.index ["clients_id"], name: "index_journal_entries_on_clients_id"
+  end
+
+  create_table "provider_assignments", force: :cascade do |t|
+    t.integer "client_id", null: false
+    t.integer "provider_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_provider_assignments_on_client_id"
+    t.index ["provider_id"], name: "index_provider_assignments_on_provider_id"
   end
 
   create_table "providers", force: :cascade do |t|
@@ -38,6 +45,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_24_224314) do
     t.index ["email"], name: "index_providers_on_email", unique: true
   end
 
-  add_foreign_key "clients", "providers", column: "providers_id"
   add_foreign_key "journal_entries", "clients", column: "clients_id"
+  add_foreign_key "provider_assignments", "clients"
+  add_foreign_key "provider_assignments", "providers"
 end

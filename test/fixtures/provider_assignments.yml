@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  clients: one
+  providers: one
+
+two:
+  clients: two
+  providers: two
