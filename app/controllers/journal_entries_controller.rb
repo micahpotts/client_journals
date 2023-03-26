@@ -21,4 +21,13 @@ class JournalEntriesController < ApplicationController
     @journal_entries = JournalEntry.where(clients_id: client).to_a
     render json: @journal_entries
   end
+
+  def create
+    @journal_entry = JournalEntry.new(text: params[:text], clients_id: params[:client_id])
+    if @journal_entry.save
+      render json: {status: "Success", message: "Entry is saved", data:@journal_entry}
+    else
+      render json: {status: "Error", message: "Entry was not created", data:@journal_entry.errors}, status: :unprocessable_entity
+    end
+  end
 end
