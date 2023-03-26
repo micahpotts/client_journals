@@ -1,5 +1,5 @@
 class ClientsController < ApplicationController
-  #TODO Add the rest of the CRUD operations. Delete, edit and update missing.
+  #TODO Add the rest of the CRUD operations. Delete and update missing.
   def index
     @clients = Client.all
     render json: @clients

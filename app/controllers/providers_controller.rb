@@ -1,4 +1,5 @@
 class ProvidersController < ApplicationController
+  #TODO Need Delete and Update
   def index
     @providers = Provider.all
     render json: @providers

@@ -20,12 +20,4 @@ Rails.application.routes.draw do
   end
 
   resources :journal_entries
-
-  #resources :providers, only: [:create]
-  #resources :clients
-
-  #resources :providers do
-    #resources :clients
-      #resources :journal_entries
-  #end
 end

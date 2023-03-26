@@ -1,4 +1,5 @@
 class JournalEntriesController < ApplicationController
+  #TODO Add remaining CRUD ops. Need delete and update.
   def index
     if params["clients"]
       @journal_entries = JournalEntry.where(clients_id: params[:clients_id]).to_a
