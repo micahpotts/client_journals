@@ -15,6 +15,7 @@ class ProvidersController < ApplicationController
     render json: @providers
   end
 
+  #TODO: This needs to be cleaned/dried up. Error handling needs to be expanded and extracted. There is no handling when a relationship is in the params, but the client doesn't exist.
   def create
     @provider = Provider.new(email: params[:email], name: params[:name])
     if @provider.save

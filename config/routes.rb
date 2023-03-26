@@ -12,11 +12,14 @@ Rails.application.routes.draw do
   end
 
   scope '/clients' do
+    post '/', to: 'clients#create'
     get '/', to: 'clients#index'
     get '/:id', to: 'clients#show'
     get '/:id/providers', to: 'providers#show_by_client'
     get '/:id/journal_entries', to: 'journal_entries#show_by_client'
   end
+
+  resources :journal_entries
 
   #resources :providers, only: [:create]
   #resources :clients
