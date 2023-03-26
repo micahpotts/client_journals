@@ -1,11 +1,16 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  email: MyString
-  plan: MyString
+  name: "Human Person"
+  email: "wasd@wasd@com"
+  plan: "basic"
 
 two:
-  name: MyString
-  email: MyString
-  plan: MyString
+  name: "Another Human"
+  email: "asdf@asdf.com"
+  plan: "premium"
+
+three:
+  name: "Accident Prone"
+  email: "ou@ch.com"
+  plan: "premium"
