@@ -2,6 +2,8 @@
 
 one:
   text: "My foot hurts; can I go to the nurse?"
+  clients_id: clients(:one).id
 
 two:
   text: "Look what I almost stepped in"
+  clients_id: clients(:two).id
