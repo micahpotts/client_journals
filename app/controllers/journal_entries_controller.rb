@@ -15,4 +15,10 @@ class JournalEntriesController < ApplicationController
     @journal_entries = JournalEntry.where(clients_id: clients).to_a
     render json: @journal_entries
   end
+
+  def show_by_client
+    client = Client.find(params[:id])
+    @journal_entries = JournalEntry.where(clients_id: client).to_a
+    render json: @journal_entries
+  end
 end
