@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     get '/:id', to: 'providers#show'
     get ':id/clients', to: 'clients#show_by_provider'
     get ':id/journal_entries', to: 'journal_entries#show_by_provider'
+    patch ':id/clients', to: 'providers#update_clients'
   end
 
   scope '/clients' do
