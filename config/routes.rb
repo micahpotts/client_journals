@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     get '/:id', to: 'clients#show'
     get '/:id/providers', to: 'providers#show_by_client'
     get '/:id/journal_entries', to: 'journal_entries#show_by_client'
+    patch ':id/providers', to: 'clients#update_providers'
   end
 
   resources :journal_entries

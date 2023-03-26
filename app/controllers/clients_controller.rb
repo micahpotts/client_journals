@@ -24,4 +24,17 @@ class ClientsController < ApplicationController
       render json: {status: "Error", message: "Client was not created", data:@client.errors}, status: :unprocessable_entity
     end
   end
+
+  def update_providers
+    @client = Client.find_by(id: params[:id])
+    @client.providers.clear
+    params[:providers].each do |n|
+      @client.providers << Provider.find(n)
+    end
+    if @client.save
+      render json: {status: "Success", message: "Updated provider list is saved", data:@client}
+    else
+      render json: {status: "Error", message: "Provider list was not updated", data:@client.errors}, status: :unprocessable_entity
+    end
+  end
 end
