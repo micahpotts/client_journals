@@ -7,7 +7,6 @@ class ClientsController < ApplicationController
   def show
     provider = Provider.find(params[:id])
     @clients = provider.clients
-    # @client = Client.find(params[:id])
     render json: @clients
   end
 end
