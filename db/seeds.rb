@@ -7,6 +7,8 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 Provider.destroy_all
+Client.destroy_all
+JournalEntry.destroy_all
 
 doctor1 = Provider.create(name: "Dr. Feelgood", email: "motley@crue.com")
 doctor2 = Provider.create(name: "Dr. Who", email: "who@tardis.com")
@@ -18,6 +20,7 @@ p "Created #{Client.count} clients"
 
 JournalEntry.create(text: "I saw the doctor today and I'm a human", clients_id: client1.id)
 JournalEntry.create(text: "I got bitten by a spider and it hurts", clients_id: client2.id)
+JournalEntry.create(text: "There's a snake in my boot!", clients_id: client2.id)
 p "Created #{JournalEntry.count} journal entries"
 
 doctor1.clients << [client1]

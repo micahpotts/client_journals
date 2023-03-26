@@ -5,6 +5,6 @@ class Client < ApplicationRecord
 
   validates :email, presence: true
   validates :name, presence: true
-  validates :plan, inclusion: { in: %w(basic premium) },
-    message: "%{value} is not a valid plan"
+  validates :plan, inclusion: { in: %w(basic premium),
+    message: "%{value} is not a valid plan" }
 end

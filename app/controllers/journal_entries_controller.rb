@@ -9,8 +9,10 @@ class JournalEntriesController < ApplicationController
     end
   end
 
-  def show
-    @journal_entry = JournalEntry.find(params[:id])
-    render json: @journal_entry
+  def show_by_provider
+    provider = Provider.find(params[:id])
+    clients = provider.clients
+    @journal_entries = JournalEntry.where(clients_id: clients).to_a
+    render json: @journal_entries
   end
 end

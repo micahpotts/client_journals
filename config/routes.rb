@@ -4,11 +4,11 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   scope '/providers', only: [:create, :index, :show] do
-    post '/', to: 'providers#create'
+    # post '/', to: 'providers#create'
     get '/', to: 'providers#index'
     get '/:id', to: 'providers#show'
     get ':id/clients', to: 'clients#show'
-    get ':id/journal_entries', to: 'journal_entries#show'
+    get ':id/journal_entries', to: 'journal_entries#show_by_provider'
   end
 #
   #scope '/clients' do
