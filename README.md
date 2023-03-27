@@ -62,3 +62,17 @@ Available Routes:
   
 IMPORTANT NOTE
 This is an *API only* application and does not include Views. All responses are in json format.
+
+RAW QUERIES
+```
+* Find all clients for a particular provider
+   SELECT "clients".* FROM "clients" INNER JOIN "provider_assignments" ON "clients"."id" = "provider_assignments"."client_id" WHERE "provider_assignments"."provider_id" = ((provider.id))
+   
+* Find all providers for a particular client
+   SELECT "providers".* FROM "providers" INNER JOIN "provider_assignments" ON "providers"."id" = "provider_assignments"."provider_id" WHERE "provider_assignments"."client_id" = ((client.id))
+
+* Find all of a particular client's journal entries, sorted by date posted
+   SELECT "journal_entries".* FROM "journal_entries" WHERE "journal_entries"."client_id" = ((client.id))
+
+* Find all of the journal entries of all of the clients of a particular provider, sorted by date posted
+   SELECT "journal_entries".* FROM "journal_entries"
