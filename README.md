@@ -60,3 +60,5 @@ Available Routes:
   POST /journal_entries   (create journal entry)
 ```
   
+IMPORTANT NOTE
+This is an *API only* application and does not include Views. All responses are in json format.
