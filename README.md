@@ -30,9 +30,12 @@ Run the application:
 
 Postman tests:
 
-Once the database is created/seeded and the application is running, all of the routes provided are in the included postman collction file.
+Postman collection is located at test/ClientJournals.postman_collection.json
+
+Once the database is created/seeded, the collection can be imported to Postman and run successfully.
 
 Run tests:
+
 There is a *very* small amount of testing for the controllers. This needs to be remedided and is marked in the code as TODO
 
   ```bin/rails test```
